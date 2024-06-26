@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans&family=Lobster&display=swap');
+
+/*make all images flexible*/
+img{
+
+	max-width: 100%;
+
+}
+
+body {
+
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Fira Sans', sans-serif;
+	
+}
+
+header {
+
+	/*background-color: #000000;*/
+	border-radius: 0.4375em;
+	/*box-shadow: 8px 8px 8px #c0c0c0;*/
+	margin-top: .2em;
+
+}
+
+nav {
+
+	/*float: right;*/
+	font-family: 'Lobster', cursive;
+	font-size: 2em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: underline;
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 20px;
+
+}
+
+nav li{
+
+	background-color: #000000;
+	margin: 0.3em;
+	padding: 0.4em;
+	border-radius: 0.625em;
+	list-style-type: none;
+
+}
+
+nav ul{
+
+	padding: 0;
+
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: line-through;
+}
+
+h3{
+	font-family: 'Bebas Neue', cursive;
+	font-size: 2em;
+
+}
+
+main{
+
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: #808080;
+	box-shadow: 12px 12px 12px #c0c0c0;
+
+}
+
+footer{
+
+	font-size: .70em;
+	text-align: center;
+	margin-top: 20px;
+	
+}
+
+.mobile{
+	display: inline;
+}
+
+.desktop{
+	display: none;
+}
+
+/*Style rule for form elements*/
+input, select, text area {
+	display: block;
+	margin-bottom: 1em;
+}
+
+/*Style Rule for Label Element*/
+label{
+	display: block;
+}
+
+/*Style Rule for UL in form*/
+form ul{
+	list-style-type: none;
+}
+
+/*Style Rule for chkbx class*/
+.chkbx {
+	display: inline-block;
+}
+
+
+
+
+/*Styles for tablet version*/
+@media only screen and (min-width: 481px) {
+
+	nav li{
+		display: inline;
+		padding: 0;
+	}
+	nav ul{
+		background-color: #000000;
+		border-radius: 0.625em;
+	}
+
+	/*Style rule for label element*/
+	label {
+		float: left;
+		padding-right: 0.5em;
+		text-align: right;
+		width: 10em;
+	}
+
+	/*Style rule for btn class*/
+	.btn{
+		margin-left: 12em;
+	}
+}
+
+
+
+
+
+
+
+/*Styles for desktop version*/
+@media only screen and (min-width:  1024px){
+	body{
+		width: 80%;
+
+}
+
+	header {
+
+	background-color: #808080;
+	box-shadow: 0.5em 0.5em 0.5em #c0c0c0;
+	text-align: center;
+}
+
+nav {
+	float: center;
+	font-size: 1.9em;
+	border-radius: 1.4em;
+
+}
+
+nav li{
+	padding: .001em;
+
+}
+
+#book-info {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px
