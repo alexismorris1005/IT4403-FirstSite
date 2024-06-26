@@ -42,4 +42,125 @@
                 <li><a href="milestone3.html">Milestones 3</a></li>
                 <li><a href="milestone4.html">Milestones 4</a></li>
             </ul>
-        </nav
+        </nav>
+
+
+    <main>
+
+     <p>This page exhibits Milestone 1, which exhibits how to display book data using Javascript/jQuery.</p>
+      
+    </main>
+
+    <h1>Books Search Example</h1>
+
+<div id="books"></div>
+
+  <script>
+    const books = [
+      // Your book data here (replace with actual data fetched from the API)
+    ];
+
+    const booksContainer = document.getElementById('books');
+
+    function displayBooks(books) {
+      books.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.classList.add('book');
+
+        const titleElement = document.createElement('h2');
+        titleElement.classList.add('book-title');
+        titleElement.textContent = book.volumeInfo.title;
+
+        const detailsElement = document.createElement('p');
+        detailsElement.classList.add('book-details');
+        detailsElement.innerHTML = `
+          ${book.volumeInfo.authors ? '<b>Authors:</b> ' + book.volumeInfo.authors.join(', ') : ''}
+          <br>
+          ${book.volumeInfo.publishedDate ? '<b>Published:</b> ' + book.volumeInfo.publishedDate : ''}
+          <br>
+          ${book.volumeInfo.description ? '<b>Description:</b> ' + book.volumeInfo.description : ''}
+        `;
+
+        bookElement.appendChild(titleElement);
+        bookElement.appendChild(detailsElement);
+
+        booksContainer.appendChild(bookElement);
+      });
+    }
+
+    // Replace with your actual logic to fetch data from the API
+    // displayBooks(books); // Example usage with dummy data
+
+    fetch('https://www.googleapis.com/books/v1/volumes?q=modern+web')
+      .then(response => response.json())
+      .then(data => displayBooks(data.items))
+      .catch(error => console.error(error));
+  </script>
+
+  </div>
+
+<h1>Individual Book Example</h1>
+
+<div class="book-container">
+    <div class="book-cover">
+        <img id="book-cover" src="" alt="Book Cover">
+    </div>
+    <div class="book-info">
+        <h2 id="book-title"></h2>
+        <h3 id="book-subtitle"></h3>
+        <p><b>Authors:</b> <span id="book-authors"></span></p>
+        <p><b>Publisher:</b> <span id="book-publisher"></span></p>
+        <p><b>Published Date:</b> <span id="book-publishedDate"></span></p>
+        <p><b>Description:</b> <span id="book-description"></span></p>
+        <p><b>ISBN-10:</b> <span id="isbn-10"></span></p>
+        <p><b>ISBN-13:</b> <span id="isbn-13"></span></p>
+        <p><b>Page Count:</b> <span id="book-pageCount"></span></p>
+        <p><b>Average Rating:</b> <span id="book-averageRating"></span></p>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    var data = {
+        "kind": "books#volume",
+        "id": "Wfan6L9RGgYC",
+        "etag": "IfeoE7VeAtk",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC",
+        "volumeInfo": {
+            "title": "The Modern Web",
+            "subtitle": "Multi-device Web Development with HTML5, CSS3, and JavaScript",
+            "authors": ["Peter Gasston"],
+            "publisher": "No Starch Press",
+            "publishedDate": "2013",
+            "description": "<p><b>A Guide to Modern Web Development</b><br></p><p>Today's web technologies are evolving at near-light speed, bringing the promise of a seamless Internet ever closer to reality. When users can browse the Web on a three-inch phone screen as easily as on a fifty-inch HDTV, what's a developer to do?</p><p>Peter Gasston's <i>The Modern Web</i> will guide you through the latest and most important tools of device-agnostic web development, including HTML5, CSS3, and JavaScript. His plain-English explanations and practical examples emphasize the techniques, principles, and practices that you'll need to easily transcend individual browser quirks and stay relevant as these technologies are updated.</p><p>Learn how to:</p><p>* Plan your content so that it displays fluidly across multiple devices<br>* Design websites to interact with devices using the most up-to-date APIs, including Geolocation, Orientation, and Web Storage<br>* Incorporate cross-platform audio and video without using troublesome plug-ins<br>* Make images and graphics scalable on high-resolution devices with SVGUse powerful HTML5 elements to design better forms</p><p>Turn outdated websites into flexible, user-friendly ones that take full advantage of the unique capabilities of any device or browser. With the help of <i>The Modern Web</i>, you'll be ready to navigate the front lines of device-independent development.</p>",
+            "industryIdentifiers": [
+                {"type": "ISBN_10", "identifier": "1593274874"},
+                {"type": "ISBN_13", "identifier": "9781593274870"}
+            ],
+            "pageCount": 264,
+            "averageRating": 5,
+            "ratingsCount": 2,
+            "imageLinks": {
+                "thumbnail": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72jpTYY5nK5elvc-_akgCx9ES-rBIAxgzz0XjjuMXvXJZ9gcfxA2r3ES6TUj8SXLzmUlcXyEZloNanIub8W-q8owQQWipggobwwDC6EoueyKwah2hTxGeSmvOKC6Jv5-_h0-bWL&source=gbs_api"
+            }
+        }
+    };
+
+    $('#book-cover').attr('src', data.volumeInfo.imageLinks.thumbnail);
+    $('#book-title').text(data.volumeInfo.title);
+    $('#book-subtitle').text(data.volumeInfo.subtitle);
+    $('#book-authors').text(data.volumeInfo.authors.join(', '));
+    $('#book-publisher').text(data.volumeInfo.publisher);
+    $('#book-publishedDate').text(data.volumeInfo.publishedDate);
+    $('#book-description').html(data.volumeInfo.description);
+    $('#isbn-10').text(data.volumeInfo.industryIdentifiers[0].identifier);
+    $('#isbn-13').text(data.volumeInfo.industryIdentifiers[1].identifier);
+    $('#book-pageCount').text(data.volumeInfo.pageCount);
+    $('#book-averageRating').text(data.volumeInfo.averageRating);
+});
+</script>
+
+
+  </body>
+
+</html>
