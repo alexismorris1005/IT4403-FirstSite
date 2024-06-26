@@ -185,4 +185,37 @@ nav li{
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 5px;
-    max-width: 600px
+    max-width: 600px;
+    margin: auto;
+}
+
+#book-info img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+#book-info a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer{
+	font-size: 1.5em;
+}
+
+
+.mobile{
+	display: none;
+
+}
+.desktop{
+	display: inline;
+}
+
+}
